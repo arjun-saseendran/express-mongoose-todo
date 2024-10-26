@@ -48,4 +48,10 @@ app.delete("/:id", async (req, res) => {
   res.send(deleted);
 });
 
+app.patch("/:id", async (req, res) => {
+  const id = req.params.id;
+  const update = await Task.findByIdAndUpdate(id, req.body.complete);
+  res.send(update);
+});
+
 app.listen(port, () => console.log(`Server running on port ${port}`));
