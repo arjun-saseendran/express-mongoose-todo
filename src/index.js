@@ -38,7 +38,7 @@ app.post("/", async (req, res) => {
 });
 app.put("/:id", async (req, res) => {
   const id = req.params.id;
-  const update = await Task.findByIdAndUpdate(id, req.body);
+  const update = await Task.findByIdAndUpdate(id, req.body.updateData);
   res.send(update);
 });
 app.delete("/:id", async (req, res) => {
