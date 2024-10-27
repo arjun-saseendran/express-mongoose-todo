@@ -14,7 +14,7 @@ connectDB()
   .then(() => console.log("MongoDB connected "))
   .catch((error) => console.log("MongoDB connection error ", error));
 
-app.use(cors({ origin: process.env.CORS, credentials: true }));
+app.use(cors({ origin: process.env.CORS || 'https://react-todo-entri.vercel.app',credentials: true }));
 
 app.use(express.json());
 app.use("/task", TaskRouter);
