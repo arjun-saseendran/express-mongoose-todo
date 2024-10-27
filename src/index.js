@@ -19,12 +19,8 @@ main()
   .then(() => console.log("Mongodb conneted"))
   .catch((error) => console.log("Mongodb connection error ", error));
 
-const tasks = new mongoose.Schema({
-  title: String,
-  completed: Boolean,
-});
 
-const Task = mongoose.model("Task", tasks);
+
 
 app.get("/", async (req, res) => {
   const tasks = await Task.find({});
