@@ -1,8 +1,7 @@
 import { Router } from "express";
 import { Task } from "../models/task.models";
 
-const router = express.Router()
-
+const router = express.Router();
 
 router.get("/", async (req, res) => {
   const tasks = await Task.find({});
@@ -32,4 +31,4 @@ router.patch("/:id", async (req, res) => {
   res.send(update);
 });
 
-export default router
+export default router;
