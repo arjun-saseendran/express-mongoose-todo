@@ -4,19 +4,17 @@ import TaskRouter from "./src/routes/task.routes.js";
 import connectDB from "./src/db/db.connection.js";
 import dotenv from "dotenv";
 
-dotenv.config({ path: "./.env" });
-app.use(
-  cors({
-    origin: process.env.CORS,
-    methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
-    credentials: true,
-  })
-);
-
-app.use(cors(corsOptions));
-
 const app = express();
 const port = process.env.PORT || 4000;
+
+dotenv.config({ path: "./.env" });
+const corsOptions = {
+  origin: process.env.CORS,
+  methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
 
 connectDB()
   .then(() => console.log("MongoDB connected "))
