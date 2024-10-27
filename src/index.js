@@ -10,7 +10,7 @@ connectDB()
   .then(() => console.log("MongoDB connected "))
   .catch((error) => console.log("MongoDB connection error ", error));
 
-app.use(cors({ origin: "http://localhost:5173", credentials: true }));
+app.use(cors({ origin: process.env.CORS, credentials: true }));
 
 app.use(express.json());
 app.use("/task", TaskRouter);
