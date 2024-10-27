@@ -22,32 +22,6 @@ main()
 
 
 
-app.get("/", async (req, res) => {
-  const tasks = await Task.find({});
 
-  res.send(tasks);
-});
-app.post("/", async (req, res) => {
-  const task = await Task.create(req.body.data);
-
-  res.send(task);
-});
-app.put("/:id", async (req, res) => {
-  const id = req.params.id;
-  const update = await Task.findByIdAndUpdate(id, req.body.updateData);
-  res.send(update);
-});
-app.delete("/:id", async (req, res) => {
-  const id = req.params.id;
-  const deleted = await Task.findByIdAndDelete(id);
-
-  res.send(deleted);
-});
-
-app.patch("/:id", async (req, res) => {
-  const id = req.params.id;
-  const update = await Task.findByIdAndUpdate(id, req.body.complete);
-  res.send(update);
-});
 
 app.listen(port, () => console.log(`Server running on port ${port}`));

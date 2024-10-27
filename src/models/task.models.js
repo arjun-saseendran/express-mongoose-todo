@@ -1,4 +1,4 @@
-
+import mongoose from "mongoose";
 
 
 const TaskSchema = new mongoose.Schema({
@@ -6,4 +6,6 @@ const TaskSchema = new mongoose.Schema({
   completed: Boolean,
 });
 
-const Task = mongoose.model("Task", TaskSchema);
+
+
+export const  Task = mongoose.model('Task', TaskSchema)
