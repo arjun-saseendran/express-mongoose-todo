@@ -1,7 +1,7 @@
 import { Router } from "express";
-import { Task } from "../models/task.models";
+import { Task } from "../models/task.models.js";
 
-const router = express.Router();
+const router = Router();
 
 router.get("/", async (req, res) => {
   const tasks = await Task.find({});
