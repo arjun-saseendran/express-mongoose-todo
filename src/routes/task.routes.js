@@ -1,15 +1,12 @@
 import { Router } from "express";
 import { Task } from "../models/task.models.js";
-import { create } from "../controllers/task.controllers.js";
+import { create, read } from "../controllers/task.controllers.js";
 
 const router = Router();
 
-router.get("/", async (req, res) => {
-  const tasks = await Task.find({});
-
-  res.send(tasks);
-});
+router.get("/", read);
 router.post("/", create);
+
 router.put("/:id", async (req, res) => {
   const id = req.params.id;
   const update = await Task.findByIdAndUpdate(id, req.body.updateData);
