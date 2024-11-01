@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { Task } from "../models/task.models.js";
+import { create } from "../controllers/task.controllers.js";
 
 const router = Router();
 
@@ -8,11 +9,7 @@ router.get("/", async (req, res) => {
 
   res.send(tasks);
 });
-router.post("/", async (req, res) => {
-  const task = await Task.create(req.body.data);
-
-  res.send(task);
-});
+router.post("/", create);
 router.put("/:id", async (req, res) => {
   const id = req.params.id;
   const update = await Task.findByIdAndUpdate(id, req.body.updateData);

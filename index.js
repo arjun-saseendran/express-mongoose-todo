@@ -6,7 +6,6 @@ import dotenv from "dotenv";
 
 const app = express();
 const port = process.env.PORT || 4000;
-
 dotenv.config({ path: "./.env" });
 const corsOptions = {
   origin: process.env.CORS,
