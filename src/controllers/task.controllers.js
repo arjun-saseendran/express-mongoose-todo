@@ -12,4 +12,10 @@ const read = async (req, res) => {
   res.send(tasks);
 };
 
-export { create, read };
+const update = async (req, res) => {
+  const id = req.params.id;
+  const update = await Task.findByIdAndUpdate(id, req.body.updateData);
+  res.send(update);
+};
+
+export { create, read, update };
