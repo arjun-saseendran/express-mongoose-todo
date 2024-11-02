@@ -1,19 +1,18 @@
 import { Router } from "express";
 import { Task } from "../models/task.models.js";
-import { create, read, update } from "../controllers/task.controllers.js";
+import {
+  createTask,
+  readTask,
+  updateTask,
+  deleteTask,
+} from "../controllers/task.controllers.js";
 
 const router = Router();
 
-router.get("/", read);
-router.post("/", create);
-router.put("/:id", update)
-
-router.delete("/:id")async (req, res) => {
-  const id = req.params.id;
-  const deleted = await Task.findByIdAndDelete(id);
-
-  res.send(deleted);
-};
+router.get("/", readTask);
+router.post("/", createTask);
+router.put("/:id", updateTask);
+router.delete("/:id", deleteTask);
 
 router.patch("/:id", async (req, res) => {
   const id = req.params.id;
